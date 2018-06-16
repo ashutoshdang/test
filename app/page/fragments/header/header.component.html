@@ -1,0 +1,40 @@
+<div class="container-fluid logo-block">
+    <div class="logo-secion text-center" id="logo-section">
+       <a href="#" style="float: left;"><img src="./assets/images/Beti-Bachao-logo.png" alt="BBBP" height="85px" width="85px"></a>
+       <div class="logo-text"><h2>Beti Bachao Beti Padhao</h2><p>Management Information System</p></div>
+       <a href="#" style="float:right;"><img src="./assets/images/MWCD-logo.png" alt="MWCD" height="85px" width="85px" class="logo-img"></a>
+    </div>
+</div>
+<header id="header">
+<div class="container-fluid">
+ <div *ngIf="!!app.userName" class="welcome-user">Welcome <b>{{app.userName}}</b></div>   
+ <nav id='nav_bar' style="font-size:14px;">
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" [ngClass]="{'active': router.url=='/'}">
+            <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        
+        <li class="nav-item" [ngClass]="{'active': router.url=='/data-entry-selection'}" *ngIf="checkUserAuthorization('DISTRICT')">
+            <a class="nav-link" mdbRippleRadius routerLink="data-entry-selection">New Entry</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': router.url=='/drafts'}" *ngIf="checkUserAuthorization('DISTRICT')">
+            <a class="nav-link" mdbRippleRadius routerLink="drafts">Drafts</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': router.url=='/user-management'}" *ngIf="checkUserAuthorization('ADMIN')">
+            <a class="nav-link" mdbRippleRadius routerLink="user-management">User Management</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': router.url=='/change-password'}"  *ngIf="!!app.checkLoggedIn()">
+            <a class="nav-link" mdbRippleRadius routerLink="change-password">Change Password</a>
+        </li>
+        <li class="nav-item" *ngIf="!app.checkLoggedIn()" [ngClass]="{'active': router.url=='/login'}">
+            <a class="nav-link" mdbRippleRadius routerLink="login">Login</a>
+        </li>       
+        <li class="nav-item" *ngIf="!!app.checkLoggedIn()" [ngClass]="{'active': router.url=='/logout'}">
+            <a class="nav-link" mdbRippleRadius (click)="logout()" >Logout</a>
+        </li>
+    </ul>
+    <!-- Links -->
+</nav>
+</div>
+</header>

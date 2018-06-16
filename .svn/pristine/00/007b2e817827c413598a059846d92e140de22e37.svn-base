@@ -1,0 +1,7 @@
+
+password.update.success=Password has been updated Successfully.Please login again.
+password.update.failure=Password has not been updated.
+new.password.previous.password = New password is same as previous password.
+new.password.confirm.password.not.matching=New password and confirm password didn't match.
+password.not.matching=Please provide the correct Old password.
+dataentry.user.filepath=c:/BBBP/
